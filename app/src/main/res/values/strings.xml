@@ -1,3 +1,42 @@
 <resources>
     <string name="app_name">SensorApp</string>
+
+    <!-- Formularios y UI -->
+    <string name="form_title">Formulario de Producto</string>
+    <string name="hint_product_name">Nombre del producto</string>
+    <string name="hint_quantity">Cantidad inicial</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+    <string name="submit">Enviar</string>
+
+    <!-- Resumen -->
+    <string name="summary_title">Resumen del Producto</string>
+    <string name="label_product_name">Producto:</string>
+    <string name="label_quantity">Cantidad:</string>
+    <string name="label_sensor_type">Tipo de sensor:</string>
+    <string name="label_auto_discount">Descontar automáticamente:</string>
+
+    <!-- Spinner options -->
+    <string-array name="sensor_types">
+        <item>IR (Infrarrojo)</item>
+        <item>Ultrasonido</item>
+        <item>RFID</item>
+        <item>Otro</item>
+    </string-array>
+
+    <!-- Mensajes y textos varios -->
+    <string name="form_title_short">Formulario</string>
+
+    <!-- Simulación y notificaciones -->
+    <string name="simulate_event">Simular salida del producto</string>
+    <string name="simulate_dialog_title">Evento detectado</string>
+    <string name="simulate_dialog_message">Se detectó la salida del producto: %1$s. ¿Desea descontar 1 unidad?</string>
+    <string name="notification_channel_name">Alertas Sensores</string>
+    <string name="notification_channel_description">Notificaciones relacionadas con eventos de sensores</string>
+    <string name="notification_title">Alerta de sensor</string>
+    <string name="notification_text">Se detectó salida del producto: %1$s</string>
+    <string name="discount_action">Descontar</string>
+    <string name="discount_applied">Descuento aplicado</string>
+    <string name="no_stock">No hay stock para descontar</string>
+
 </resources>

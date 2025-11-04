@@ -1,9 +1,8 @@
 package com.example.sensorapp
 
-import android.os.Bundle
+import android.app.Activity
+import android.content.Intent
 import android.widget.Toast
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
@@ -14,14 +13,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController // <-- Nueva4 importación clave
+import androidx.navigation.NavController
 
-// Eliminamos la clase LoginActivity de aquí.
-// LoginScreen ahora es solo un composable que puede ser llamado por el NavHost.
-
+/**
+ * Pantalla de Login en Compose.
+ * Al autenticarse correctamente, inicia la Activity `ProductFormActivity` (formulario XML).
+ */
 @Composable
-fun LoginScreen(navController: NavController) { // <-- Ahora requiere NavController
-    // Ya no necesitamos 'LocalContext' para Intent/finish(), solo para Toast.
+fun LoginScreen(navController: NavController) {
     val context = LocalContext.current
 
     var username by remember { mutableStateOf("") }
@@ -60,11 +59,11 @@ fun LoginScreen(navController: NavController) { // <-- Ahora requiere NavControl
         Button(
             onClick = {
                 if (username == "admin" && password == "1234") {
-                    // 1. **Reemplazamos Intent y finish() por navegación de Compose**
-                    navController.navigate("dashboard") {
-                        // Opcional: Limpia la pila para que no se pueda volver al login
-                        popUpTo("login") { inclusive = true }
-                    }
+                    // Iniciamos la Activity con el formulario (implementada en XML)
+                    val intent = Intent(context, ProductFormActivity::class.java)
+                    context.startActivity(intent)
+                    // Cerramos la Activity Compose que hospeda este NavHost
+                    (context as? Activity)?.finish()
                 } else {
                     Toast.makeText(context, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
                 }

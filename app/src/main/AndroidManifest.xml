@@ -26,6 +26,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- Activity con formulario XML (después del login) -->
+        <activity
+            android:name=".ProductFormActivity"
+            android:exported="false"
+            android:label="@string/form_title" />
+
+        <!-- Activity que muestra el resumen de los datos recibidos -->
+        <activity
+            android:name=".SummaryActivity"
+            android:exported="false"
+            android:label="@string/summary_title" />
     </application>
 
 </manifest>
