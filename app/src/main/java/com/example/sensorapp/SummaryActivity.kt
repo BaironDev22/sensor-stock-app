@@ -30,6 +30,7 @@ class SummaryActivity : ComponentActivity() {
         val tvSensor = findViewById<TextView>(R.id.tvSummarySensor)
         val tvAuto = findViewById<TextView>(R.id.tvSummaryAuto)
         val btnSimulate = findViewById<Button>(R.id.btnSimulate)
+        val btnAddAnother = findViewById<Button>(R.id.btnAddAnother)
 
         var name = intent.getStringExtra("product_name") ?: "-"
         var quantity = intent.getStringExtra("quantity") ?: "0"
@@ -73,6 +74,13 @@ class SummaryActivity : ComponentActivity() {
 
             // Además, publicar una notificación con acción para descontar
             sendSensorNotification(name)
+        }
+
+        // Botón para volver al formulario y agregar otro producto
+        btnAddAnother.setOnClickListener {
+            val intent = Intent(this, ProductFormActivity::class.java)
+            startActivity(intent)
+            finish() // Finalizar esta Activity para no acumular en el stack
         }
     }
 

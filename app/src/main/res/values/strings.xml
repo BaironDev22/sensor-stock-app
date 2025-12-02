@@ -38,5 +38,6 @@
     <string name="discount_action">Descontar</string>
     <string name="discount_applied">Descuento aplicado</string>
     <string name="no_stock">No hay stock para descontar</string>
+    <string name="add_another_product">Agregar otro producto</string>
 
 </resources>

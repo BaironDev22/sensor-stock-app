@@ -54,6 +54,14 @@ dependencies {
 
     // ConstraintLayout para layouts XML (formularios)
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    
+    // CardView para diseño de tarjetas en XML
+    implementation("androidx.cardview:cardview:1.0.0")
+    
+    // Firebase - con versiones explícitas
+    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+    implementation("com.google.firebase:firebase-auth:23.0.0")
+    implementation("com.google.firebase:firebase-analytics:22.1.0")
 
 
     // --- NUEVAS DEPENDENCIAS AÑADIDAS ---
@@ -79,3 +87,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
 }
+
+// Aplicar plugin Google Services al final
+apply(plugin = "com.google.gms.google-services")

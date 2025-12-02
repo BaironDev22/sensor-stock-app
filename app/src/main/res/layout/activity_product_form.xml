@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:background="@color/background_light"
+    android:padding="24dp"
     tools:context=".ProductFormActivity">
 
     <TextView
@@ -12,72 +13,104 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/form_title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_blue"
+        android:layout_marginBottom="24dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/edtProductName"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardFormContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_product_name"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="@color/card_background"
         app:layout_constraintTop_toBottomOf="@id/tvTitleForm"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <EditText
-        android:id="@+id/edtQuantity"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="@string/hint_quantity"
-        app:layout_constraintTop_toBottomOf="@id/edtProductName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp" />
-
-    <Spinner
-        android:id="@+id/spinnerSensorType"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/edtQuantity"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp" />
-
-    <RadioGroup
-        android:id="@+id/radioAutoDiscount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/spinnerSensorType"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="12dp">
-
-        <RadioButton
-            android:id="@+id/radioYes"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/yes" />
+            android:padding="20dp">
 
-        <RadioButton
-            android:id="@+id/radioNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/no" />
-    </RadioGroup>
+            <EditText
+                android:id="@+id/edtProductName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_product_name"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_secondary"
+                android:padding="12dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/btnSubmitProduct"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/submit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioAutoDiscount"
-        android:layout_marginTop="20dp" />
+            <EditText
+                android:id="@+id/edtQuantity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/hint_quantity"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_secondary"
+                android:padding="12dp"
+                app:layout_constraintTop_toBottomOf="@id/edtProductName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
+
+            <Spinner
+                android:id="@+id/spinnerSensorType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                app:layout_constraintTop_toBottomOf="@id/edtQuantity"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
+
+            <RadioGroup
+                android:id="@+id/radioAutoDiscount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/spinnerSensorType"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="16dp">
+
+                <RadioButton
+                    android:id="@+id/radioYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yes"
+                    android:textColor="@color/text_primary" />
+
+                <RadioButton
+                    android:id="@+id/radioNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/no"
+                    android:textColor="@color/text_primary" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btnSubmitProduct"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:text="@string/submit"
+                android:textSize="16sp"
+                android:backgroundTint="@color/primary_blue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/radioAutoDiscount"
+                android:layout_marginTop="24dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
